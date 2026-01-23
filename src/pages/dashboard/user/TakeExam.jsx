@@ -273,7 +273,7 @@ const TakeExam = () => {
 
     // Check limit
     if (hintedQuestions.size >= maxHints) {
-      toast.warning(`You have used all ${maxHints} hint chances for this exam.`);
+      // toast.warning(`You have used all ${maxHints} hint chances for this exam.`);
       return;
     }
 
@@ -283,8 +283,8 @@ const TakeExam = () => {
     setHintedQuestions(newHinted);
     setShowAnswer(true);
     
-    const remaining = maxHints - newHinted.size;
-    toast.info(`Hint used. You have ${remaining} chance${remaining !== 1 ? 's' : ''} remaining.`);
+    // const remaining = maxHints - newHinted.size;
+    // toast.info(`Hint used. You have ${remaining} chance${remaining !== 1 ? 's' : ''} remaining.`);
   };
 
   if (error) {
@@ -368,6 +368,10 @@ const TakeExam = () => {
   const currentQuestion = activeQuestions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === activeQuestions.length - 1;
 
+  // Calculate hints
+  const maxHints = Math.ceil(activeQuestions.length * 0.3);
+  const remainingHints = maxHints - hintedQuestions.size;
+
   return (
     <div className="take-exam-page">
       {/* Top Bar */}
@@ -387,13 +391,20 @@ const TakeExam = () => {
           <h3>
             {currentQuestion.question_text}
           </h3>
-          <Button 
-            variant="secondary" 
-            onClick={handleToggleAnswer}
-            className="toggle-answer-btn"
-          >
-            {showAnswer ? <FiEyeOff /> : <FiEye />}
-          </Button>
+          <div className="hint-controls">
+            <span className="hint-count">
+              {remainingHints} / {maxHints} chances left
+            </span>
+            <Button 
+              variant="secondary" 
+              onClick={handleToggleAnswer}
+              className="toggle-answer-btn"
+              disabled={!showAnswer && remainingHints === 0 && !hintedQuestions.has(currentQuestion.id)}
+              title={remainingHints === 0 ? "No hint chances remaining" : "Show Correct Answer"}
+            >
+              {showAnswer ? <FiEyeOff /> : <FiEye />}
+            </Button>
+          </div>
         </div>
 
         <div className="options-list">
