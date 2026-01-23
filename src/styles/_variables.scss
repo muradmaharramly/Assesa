@@ -1,0 +1,76 @@
+:root {
+  /* Green Mist UI - Light Mode (Clean, High Contrast) */
+  --primary-color: #00d26a; /* Vibrant Green */
+  --primary-hover: #00a653;
+  --secondary-color: #64748b;
+  --success-color: #00d26a;
+  --danger-color: #ff4d4d;
+  --warning-color: #fbbf24;
+  
+  --background-color: #f3f4f6;
+  --surface-color: #ffffff;
+  --surface-hover: #f9fafb;
+  
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  
+  --glow-color: rgba(0, 210, 106, 0.3);
+  --active-link-bg: rgba(0, 210, 106, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Green Mist UI - Dark Mode (The Real Deal) */
+  --primary-color: #00ffa3; /* Neon Green */
+  --primary-hover: #00cc82;
+  --secondary-color: #94a3b8;
+  --success-color: #00ffa3;
+  --danger-color: #ff5f5f;
+  --warning-color: #fbbf24;
+  
+  --background-color: #050505; /* Deep Black */
+  --surface-color: #121212;    /* Dark Surface */
+  --surface-hover: #1e1e1e;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --border-color: #27272a;
+  
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(18, 18, 18, 0.6);
+  
+  --glow-color: rgba(0, 255, 163, 0.4);
+  --active-link-bg: rgba(0, 255, 163, 0.1);
+}
+
+$primary-color: var(--primary-color);
+$primary-hover: var(--primary-hover);
+$secondary-color: var(--secondary-color);
+$success-color: var(--success-color);
+$danger-color: var(--danger-color);
+$warning-color: var(--warning-color);
+$background-color: var(--background-color);
+$surface-color: var(--surface-color);
+$surface-hover: var(--surface-hover);
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$border-color: var(--border-color);
+$active-link-bg: var(--active-link-bg);
+$glow-color: var(--glow-color);
+$glass-border: var(--glass-border);
+$glass-bg: var(--glass-bg);
+
+$font-family: 'Inter', system-ui, -apple-system, sans-serif;
+$radius-xs: 0.25rem;  /* Extra small rounding */
+$radius-sm: 0.5rem;   /* More rounded */
+$radius-md: 0.75rem;  /* More rounded */
+$radius-lg: 1rem;     /* Large rounding for cards */
+$radius-full: 9999px;
+
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+$shadow-glow: 0 0 15px var(--glow-color); /* The signature glow */

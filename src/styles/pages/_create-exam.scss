@@ -1,0 +1,154 @@
+.create-exam-container {
+  margin: 0 auto;
+  
+  h2 {
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+  }
+}
+
+.mode-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+
+  button {
+    padding: 1rem 1.5rem;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+
+    &.active {
+      border-bottom-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+  }
+}
+
+.exam-form-card {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.input-label-secondary {
+  color: var(--text-secondary);
+}
+
+.description-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 1rem;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+}
+
+.json-upload-area {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--background-color);
+  
+  .upload-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    
+    .upload-icon {
+      margin-bottom: 0.5rem;
+    }
+    
+    h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text-secondary);
+    }
+    
+    p {
+      margin: 0 0 1rem 0;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 0 auto;
+      color: var(--text-primary);
+    }
+  }
+
+  .paste-separator {
+    position: relative;
+
+    .separator-label {
+      position: absolute;
+      top: -0.75rem;
+      left: 1rem;
+      background-color: var(--background-color);
+      padding: 0 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.json-textarea {
+  width: 100%;
+  min-height: 200px;
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  resize: vertical;
+  margin-top: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+}
+
+.checkbox-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}

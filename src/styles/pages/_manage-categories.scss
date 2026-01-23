@@ -1,0 +1,129 @@
+@import '../variables';
+@import '../mixins';
+
+.manage-categories-page {
+  .add-category-section {
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    border-radius: $radius-md;
+    border: 1px solid $glass-border;
+    margin-bottom: 2rem;
+    box-shadow: $shadow-sm;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: $text-primary;
+    }
+
+    form {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+      flex-wrap: wrap;
+
+      .input-group {
+        flex: 1 1 200px;
+        
+        &.description {
+          flex: 2 1 300px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 0.875rem;
+          color: $text-secondary;
+        }
+      }
+
+      button {
+        width: auto;
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  .categories-grid {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .category-card {
+      flex: 0 0 26%;
+      background: $glass-bg;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      border-radius: $radius-md;
+      border: 1px solid $glass-border;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: all 0.2s ease;
+      position: relative;
+      box-shadow: $shadow-sm;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-glow;
+        border-color: rgba($primary-color, 0.3);
+      }
+
+      h3 {
+        margin: 0 0 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $text-primary;
+        
+        svg {
+          color: $primary-color;
+        }
+      }
+
+      p {
+        margin: 0;
+        color: $text-secondary;
+        font-size: 0.9rem;
+      }
+
+      .actions {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: flex-end;
+
+        .delete-btn {
+          background: transparent;
+          border: 1px solid $danger-color;
+          color: $danger-color;
+          padding: 0.5rem;
+          border-radius: $radius-sm;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: $danger-color;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .no-categories {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem;
+      color: $text-secondary;
+    }
+  }
+}

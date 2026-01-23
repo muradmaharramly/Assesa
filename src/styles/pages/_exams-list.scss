@@ -1,0 +1,266 @@
+@import '../variables';
+@import '../mixins';
+
+.filters-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background-color: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: $radius-md;
+  border: 1px solid $glass-border;
+  box-shadow: $shadow-sm;
+  position: relative;
+  z-index: 20;
+
+  .search-box {
+    flex: 1 1 300px; // Allow growing and shrinking, min 300px
+    position: relative;
+
+    svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $text-secondary;
+    }
+
+    input {
+      width: 80%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      border-radius: $radius-sm;
+      border: 1px solid $glass-border;
+      background-color: $surface-color;
+      color: $text-primary;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+      
+      &::placeholder {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  .filter-box {
+    flex: 0 1 180px; // Don't grow too much, allow shrink
+    min-width: 150px;
+
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: $radius-sm;
+      border: 1px solid $glass-border;
+      background-color: $surface-color;
+      color: $text-primary;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+    }
+  }
+
+  .status-toggle {
+    display: flex;
+    align-items: center;
+    background-color: $surface-color;
+    border: 1px solid $glass-border;
+    border-radius: $radius-sm;
+    padding: 0.25rem;
+    height: fit-content;
+    align-self: center; // Align vertically in flex container
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: transparent;
+      color: $text-secondary;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: $radius-xs;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $text-primary;
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: white;
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .search-box, .filter-box, .status-toggle {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+    }
+    
+    .status-toggle {
+      justify-content: center;
+      
+      button {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.exams-list-page {
+  .exams-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      color: $text-primary;
+      text-shadow: 0 0 10px rgba($primary-color, 0.2);
+    }
+
+    .create-btn {
+      width: auto;
+      padding: 0.5rem 1.5rem;
+    }
+  }
+
+  .error-message {
+    color: $danger-color;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba($danger-color, 0.4);
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius-md;
+    border: 1px solid $glass-border;
+    color: $text-primary;
+  }
+
+  .exams-grid {
+   display: flex;
+   justify-content: left;
+   align-items: flex-start;
+   flex-wrap: wrap;
+  }
+
+  .exam-card {
+    flex: 0 0 25%;
+    height: 100%;
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    border-radius: $radius-md;
+    border: 1px solid $glass-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      box-shadow: $shadow-glow;
+      border-color: rgba($primary-color, 0.3);
+      transform: translateX(4px);
+    }
+
+    .exam-info {
+      h3 {
+        margin: 0 0 0.5rem 0;
+        color: $text-primary;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-shadow: 0 0 5px rgba($primary-color, 0.2);
+      }
+
+      .difficulty-badge {
+          font-size: 0.75rem;
+          padding: 0.35rem 0.75rem;
+          border-radius: 9999px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 700;
+          border: 1px solid transparent;
+
+          &.easy { 
+            border-color: $success-color; 
+            color: $success-color; 
+          }
+          &.medium { 
+            border-color: $warning-color;
+            color: $warning-color; 
+          }
+          &.hard { 
+            border-color: $danger-color;
+            color: $danger-color; 
+          }
+        }
+
+      p {
+        margin: 0;
+        color: $text-secondary;
+        font-size: 0.875rem;
+      }
+    }
+
+    .exam-actions {
+      align-self: flex-end;
+      display: flex;
+      gap: 0.5rem;
+
+      .edit-btn {
+        width: auto;
+      }
+
+      .delete-btn {
+        width: auto;
+        color: $danger-color;
+        border-color: $danger-color;
+
+        &:hover {
+          background-color: $danger-color;
+          color: white;
+        }
+      }
+    }
+  }
+}

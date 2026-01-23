@@ -1,0 +1,81 @@
+@import '../variables';
+@import '../mixins';
+
+.profile-settings-page {
+  margin: 0 auto;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    h2 {
+      margin: 0;
+      color: $text-primary;
+    }
+  }
+
+  .settings-card {
+    background-color: $surface-color;
+    padding: 2rem;
+    border-radius: $radius-md;
+    border: 1px solid $border-color;
+
+    .section {
+      margin-bottom: 1.5rem;
+
+      &.bordered {
+        border-top: 1px solid $border-color;
+        padding-top: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $text-primary;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: $text-secondary;
+        }
+
+        .disabled-input {
+          width: 100%;
+          padding: 0.625rem 0.875rem;
+          border-radius: $radius-md;
+          border: 1px solid $border-color;
+          font-size: 1rem;
+          background-color: $background-color;
+          color: $text-secondary;
+          cursor: not-allowed;
+        }
+
+        .helper-text {
+          font-size: 0.75rem;
+          color: $text-secondary;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        width: auto;
+      }
+    }
+  }
+}

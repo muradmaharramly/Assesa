@@ -1,0 +1,91 @@
+@import '../variables';
+
+.custom-select-container {
+  position: relative;
+  width: 100%;
+  min-width: 150px;
+  
+  .custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $text-primary;
+    background-color: $surface-color;
+    border: 1px solid $glass-border;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      border-color: rgba($primary-color, 0.5);
+    }
+
+    &.open {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    }
+
+    .arrow {
+      margin-left: 0.5rem;
+      transition: transform 0.2s ease;
+      color: $text-secondary;
+      
+      &.open {
+        transform: rotate(180deg);
+        color: $primary-color;
+      }
+    }
+  }
+
+  .custom-select-options {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: $surface-color;
+    border: 1px solid $glass-border;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-md;
+    max-height: 250px;
+    overflow-y: auto;
+    animation: fadeIn 0.2s ease;
+    
+    // Scrollbar styling
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $secondary-color;
+      border-radius: $radius-full;
+    }
+
+    .custom-option {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      color: $text-primary;
+
+      &:hover {
+        background-color: $surface-hover;
+        color: $primary-color;
+      }
+
+      &.selected {
+        background-color: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

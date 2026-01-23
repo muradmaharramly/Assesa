@@ -1,0 +1,70 @@
+@import '../variables';
+@import '../mixins';
+
+.auth-layout {
+  min-height: 100vh;
+  @include flex-center;
+  background-color: transparent; // Allow body bg to show
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba($primary-color, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba($primary-color, 0.05) 0%, transparent 20%);
+  padding: 1rem;
+
+  .auth-card {
+    // Glassmorphism card
+    background: $glass-bg;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid $glass-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-glow, $shadow-lg;
+    
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba($primary-color, 0.2), $shadow-lg;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin: 0 0 0.5rem 0;
+        text-shadow: 0 0 15px rgba($primary-color, 0.5);
+      }
+
+      p {
+        color: $text-secondary;
+        margin: 0;
+      }
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: $text-secondary;
+
+      a {
+        color: $primary-color;
+        font-weight: 500;
+        text-shadow: 0 0 5px rgba($primary-color, 0.4);
+        transition: all 0.2s;
+        
+        &:hover {
+          text-decoration: none;
+          color: $primary-hover;
+          text-shadow: 0 0 10px $primary-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@import '../variables';
+@import '../mixins';
+
+.exam-result-page {
+  margin: 0 auto;
+
+  .loading-container, .error-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .result-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .score-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem auto;
+
+      &.pass {
+        background-color: rgba($success-color, 0.1);
+        color: $success-color;
+      }
+
+      &.fail {
+        background-color: rgba($danger-color, 0.1);
+        color: $danger-color;
+      }
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      color: $text-primary;
+    }
+
+    p {
+      color: $text-secondary;
+    }
+
+    .result-summary {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+
+      .summary-item {
+        text-align: center;
+
+        h2 {
+          font-size: 2.5rem;
+          margin: 0;
+          
+          &.pass { color: $success-color; }
+          &.fail { color: $danger-color; }
+          &.primary { color: $primary-color; }
+        }
+
+        span {
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+
+  .detailed-review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h3 {
+      margin: 0;
+      color: $text-primary;
+    }
+
+    .review-toggle-btn {
+      width: auto;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .questions-review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .review-card {
+      background-color: $surface-color;
+      padding: 1.5rem;
+      border-radius: $radius-md;
+      border: 1px solid $border-color;
+      border-left-width: 4px;
+      border-left-style: solid;
+
+      &.correct { border-left-color: $success-color; }
+      &.incorrect { border-left-color: $danger-color; }
+      &.skipped { border-left-color: $secondary-color; }
+
+      .question-text {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        color: $text-primary;
+
+        .index {
+          color: $text-secondary;
+        }
+
+        .skipped-text {
+          font-size: 0.8rem;
+          color: $text-secondary;
+        }
+      }
+
+      .options-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .option-item {
+          padding: 0.75rem;
+          border-radius: 0.375rem;
+          border: 1px solid $border-color;
+          color: $text-secondary;
+          font-size: 0.9rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &.correct {
+            background-color: rgba($success-color, 0.1);
+            border-color: $success-color;
+            color: $success-color;
+          }
+
+          &.wrong {
+            background-color: rgba($danger-color, 0.1);
+            border-color: $danger-color;
+            color: $danger-color;
+          }
+
+          .status-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .action-footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+}

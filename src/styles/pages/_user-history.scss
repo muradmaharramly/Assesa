@@ -1,0 +1,199 @@
+@import '../variables';
+@import '../mixins';
+
+.user-history-page {
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    h2 {
+      margin: 0;
+      color: $text-primary;
+      text-shadow: 0 0 10px rgba($primary-color, 0.2);
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .error-message {
+    color: $danger-color;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba($danger-color, 0.4);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem;
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius-md;
+    border: 1px solid $glass-border;
+    box-shadow: $shadow-sm;
+
+    h3 {
+      margin-bottom: 1rem;
+      color: $text-secondary;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: $text-secondary;
+    }
+
+    button {
+      width: auto;
+      margin: auto;
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius-md;
+    border: 1px solid $glass-border;
+    box-shadow: $shadow-sm;
+  }
+
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+
+    thead {
+      tr {
+        border-bottom: 1px solid $glass-border;
+        background-color: rgba(0, 0, 0, 0.2); // Slightly darker header
+
+        th {
+          padding: 1rem;
+          text-align: left;
+          font-weight: 600;
+          color: $text-secondary;
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          letter-spacing: 0.05em;
+
+          &.text-center {
+            text-align: center;
+          }
+
+          &.text-right {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $glass-border;
+        transition: background-color 0.2s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: rgba($primary-color, 0.05);
+        }
+      }
+
+      td {
+        padding: 1rem;
+        color: $text-secondary;
+      }
+    }
+
+    .exam-title-cell {
+      .title {
+        font-weight: 600;
+        color: $text-primary;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+
+      .meta {
+        font-size: 0.875rem;
+        color: $text-secondary;
+      }
+    }
+
+    .date-cell {
+      color: $text-secondary;
+    }
+
+    .score-cell {
+      text-align: center;
+
+      .score {
+        font-weight: 600;
+        
+        &.passed { color: $success-color; }
+        &.failed { color: $danger-color; }
+      }
+
+      .percentage {
+        font-size: 0.75rem;
+        color: $text-secondary;
+      }
+    }
+
+    .status-cell {
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      &.passed {
+        background-color: rgba($success-color, 0.1);
+        color: $success-color;
+      }
+
+      &.failed {
+        background-color: rgba($danger-color, 0.1);
+        color: $danger-color;
+      }
+    }
+
+    .actions-cell {
+      text-align: right;
+
+      .action-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+      }
+
+      .view-btn {
+        width: auto;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        margin-right: 0.5rem;
+      }
+
+      .delete-btn {
+        width: auto;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        color: $danger-color;
+        border-color: $danger-color;
+      }
+    }
+  }
+}

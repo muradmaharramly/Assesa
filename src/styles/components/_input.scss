@@ -1,0 +1,49 @@
+@import '../variables';
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  .input-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-field {
+    padding: 0.75rem 1rem;
+    border-radius: $radius-md;
+    border: 1px solid $border-color;
+    background-color: rgba(255, 255, 255, 0.03); /* Slight transparency */
+    color: $text-primary;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    backdrop-filter: blur(5px);
+
+    &:focus {
+      border-color: $primary-color;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 15px rgba(0, 255, 163, 0.2), inset 0 0 0 1px rgba(0, 255, 163, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+      opacity: 0.5;
+    }
+    
+    &.input-error {
+      border-color: $danger-color;
+      box-shadow: 0 0 10px rgba(255, 95, 95, 0.2);
+    }
+  }
+
+  .input-error-text {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: $danger-color;
+  }
+}

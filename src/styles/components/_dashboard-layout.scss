@@ -1,0 +1,110 @@
+@import '../variables';
+@import '../mixins';
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: transparent; // Allow body bg (tech grid) to show through
+
+  .main-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // Fix for flex children overflow
+    transition: margin-left 0.3s ease;
+
+    @include mobile {
+      margin-left: 0;
+    }
+
+    .top-bar {
+      height: 70px;
+      background: $glass-bg;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid $glass-border;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: $shadow-sm;
+      @include mobile {
+          padding: 0 1rem;
+        }
+
+      .top-bar-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-btn {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        color: $text-secondary;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin-right: 1rem;
+        display: none;
+
+        @include mobile {
+          display: block;
+        }
+      }
+
+      h1 {
+        font-size: 1.25rem;
+        margin: 0;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba($primary-color, 0.1);
+      }
+
+      .theme-toggle-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: $text-secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba($primary-color, 0.1);
+          color: $primary-color;
+          box-shadow: 0 0 10px rgba($primary-color, 0.2);
+        }
+      }
+    }
+
+    .page-content {
+      padding: 2rem;
+      flex: 1;
+
+      @include mobile {
+        padding: 1rem;
+      }
+    }
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 45;
+
+    @include mobile {
+      display: block;
+    }
+  }
+}

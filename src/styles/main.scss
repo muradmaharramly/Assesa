@@ -1,0 +1,116 @@
+@import 'variables';
+@import 'mixins';
+@import 'pages/available-exams';
+@import 'pages/create-exam';
+@import 'pages/take-exam';
+@import 'pages/dashboard-home';
+@import 'pages/users-list';
+@import 'pages/profile-settings';
+@import 'pages/user-history';
+@import 'pages/take-public-exam';
+@import 'pages/exams-list';
+@import 'pages/exam-details';
+@import 'pages/exam-result';
+@import 'pages/landing';
+@import 'pages/manage-categories';
+@import 'components/custom-select';
+
+// Custom Scrollbar for Green Mist UI
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary-color;
+  border-radius: $radius-full;
+  
+  &:hover {
+    background: $primary-color;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+
+  // Global "Tech Grid" Background Pattern
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    
+    // Grid Lines
+    background-image: 
+      linear-gradient(rgba($primary-color, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($primary-color, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    
+    // Soft Vignette to fade edges
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  }
+
+  // Global Glow Orbs
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba($primary-color, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba($secondary-color, 0.05) 0%, transparent 50%);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Global Loading State
+.full-screen-loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Not Found Page
+.not-found-container {
+  padding: 2rem;
+  text-align: center;
+
+  h1 {
+    color: $text-primary;
+  }
+}
