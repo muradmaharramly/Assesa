@@ -102,6 +102,7 @@
 
       &.active {
         background-color: $primary-color;
+        color: $text-primary;
         box-shadow: $shadow-sm;
       }
     }
