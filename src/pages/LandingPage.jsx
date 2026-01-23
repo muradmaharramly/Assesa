@@ -9,6 +9,7 @@ import { FadeLoader } from 'react-spinners';
 import { useTheme } from '../context/ThemeContext';
 import { BsLightningCharge } from 'react-icons/bs';
 import { supabase } from '../services/supabaseClient';
+import logo from '../assets/images/assesa-logo.png';
 
 const CountUp = ({ end, duration = 2000, suffix = '' }) => {
   const [count, setCount] = useState(0);
@@ -127,6 +128,7 @@ const LandingPage = () => {
       <nav className="landing-nav">
         <div className="container">
           <div className="logo">
+            <div className='img-div'><img src={logo} /></div>
             <h2>Assesa</h2>
           </div>
           <div className="nav-links">
@@ -379,11 +381,6 @@ const LandingPage = () => {
       <footer className="landing-footer">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} Assesa. All rights reserved.</p>
-          <div className="footer-links">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
-            <span>Contact Us</span>
-          </div>
         </div>
       </footer>
     </div>

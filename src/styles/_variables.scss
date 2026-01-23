@@ -13,6 +13,7 @@
   
   --text-primary: #111827;
   --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
   --border-color: #e5e7eb;
   
   --glass-border: rgba(0, 0, 0, 0.08);
@@ -37,6 +38,7 @@
   
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
   --border-color: #27272a;
   
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -57,6 +59,7 @@ $surface-color: var(--surface-color);
 $surface-hover: var(--surface-hover);
 $text-primary: var(--text-primary);
 $text-secondary: var(--text-secondary);
+$text-muted: var(--text-muted);
 $border-color: var(--border-color);
 $active-link-bg: var(--active-link-bg);
 $glow-color: var(--glow-color);

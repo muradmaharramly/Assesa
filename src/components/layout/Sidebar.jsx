@@ -15,6 +15,7 @@ import {
   FiTag
 } from 'react-icons/fi';
 import '../../styles/components/_sidebar.scss';
+import logo from '../../assets/images/assesa-logo.png';
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
   const { profile, user } = useSelector((state) => state.auth);
@@ -57,6 +58,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
+        <img src={logo} alt="Assesa Logo" className="sidebar-logo" />
         <h2>Assesa</h2>
       </div>
 
