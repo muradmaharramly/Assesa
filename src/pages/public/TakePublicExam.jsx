@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchExamById, clearCurrentExam } from '../../store/slices/examSlice';
 import Button from '../../components/ui/Button';
+import ConfirmModal from '../../components/ui/ConfirmModal';
 import { FadeLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import { FiClock, FiCheck, FiArrowRight, FiArrowLeft, FiEye, FiEyeOff, FiX, FiHome } from 'react-icons/fi';

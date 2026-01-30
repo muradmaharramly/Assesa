@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { FiAward, FiClipboard, FiCheckCircle, FiUsers, FiTrendingUp, FiPlay, FiActivity, FiCalendar, FiBarChart2 } from 'react-icons/fi';
+import { FiAward, FiClipboard, FiCheckCircle, FiUsers, FiTrendingUp, FiPlay, FiActivity, FiCalendar, FiBarChart2, FiClock, FiHelpCircle, FiEye } from 'react-icons/fi';
 import { supabase } from '../../services/supabaseClient';
 import { FadeLoader } from 'react-spinners';
 import { fetchPublicExams } from '../../store/slices/examSlice';
@@ -330,19 +330,51 @@ const GuestDashboard = () => {
             </div>
 
             <h2 className="section-title">Public Mock Exams</h2>
-            <div className="exams-list-grid">
-              {activeExams.map((exam) => (
-                <div key={exam.id} className="dashboard-exam-card">
-                  <h3>{exam.title}</h3>
-                  <div className="exam-meta">
-                    <span>{exam.duration_minutes} mins</span>
-                    <span>{exam.questions?.length || exam.questions?.[0]?.count || 0} questions</span>
-                  </div>
-                  <Link to={`/dashboard/public/take-exam/${exam.id}`}>
+            <div className="exams-grid">
+             {activeExams.map((exam) => (
+                         <div key={exam.id} className="exam-card">
+                           <div>
+                             <div className="exam-header">
+                               <h3>{exam.title}</h3>
+                               <span className={`difficulty-badge ${exam.difficulty || 'medium'}`}>
+                                 {exam.difficulty || 'medium'}
+                               </span>
+                             </div>
+                             {exam.categories?.name && (
+                                 <span style={{ 
+                                     fontSize: '0.8rem', 
+                                     color: 'var(--primary-color)', 
+                                     backgroundColor: 'rgba(var(--primary-rgb), 0.1)',
+                                     padding: '0.2rem 0.5rem',
+                                     borderRadius: '1rem',
+                                     display: 'inline-block',
+                                     marginBottom: '0.5rem'
+                                 }}>
+                                     {exam.categories.name}
+                                 </span>
+                             )}
+                             <p className="description">
+                               {exam.description || 'No description provided.'}
+                             </p>
+                             
+                             <div className="meta">
+                               <div>
+                                 <FiClock /> {exam.duration_minutes} mins
+                               </div>
+                               <div>
+                                 <FiHelpCircle /> {exam.questions?.[0]?.count || 0} Questions
+                               </div>
+                               <div>
+                                 <FiEye /> {Math.ceil((exam.questions?.[0]?.count || 0) * 0.3)} Hints
+                               </div>
+                             </div>
+                           </div>
+                           
+                           <Link to={`/dashboard/public/take-exam/${exam.id}`}>
                     <Button size="sm"><FiPlay /> Start Mock Exam</Button>
                   </Link>
-                </div>
-              ))}
+                         </div>
+                       ))}
               {!loading && activeExams.length === 0 && <p className="no-data-text">No public exams available.</p>}
             </div>
         </div>
