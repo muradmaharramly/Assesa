@@ -167,7 +167,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
             <div className="user-info">
               <span className="user-name">Guest User</span>
             </div>
-            <button className="logout-btn" onClick={() => navigate('/login')} title="Login">
+            <button className="login-btn" onClick={() => navigate('/login')} title="Login">
               <FiLogOut className="login-icon" /> <span>Login</span>
             </button>
           </div>
