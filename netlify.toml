@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundle = true
+
+# Configuration for scheduled functions
+[[plugins]]
+  package = "@netlify/plugin-functions-core"
+
+# The schedule is already defined in the function file itself (ESM syntax),
+# but you can also define it here if needed for older function styles.
