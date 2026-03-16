@@ -158,6 +158,18 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <header className="hero-section">
+        {/* Background Illustrations */}
+        <div className="hero-illustrations">
+          <div className="floating-orb orb-1"></div>
+          <div className="floating-orb orb-2"></div>
+          <div className="floating-orb orb-3"></div>
+          <div className="data-grid"></div>
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
+        </div>
+        
         {/* Decorative Circuit Lines */}
         <div className="tech-circuit-left"></div>
         <div className="tech-circuit-right"></div>
