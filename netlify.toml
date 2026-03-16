@@ -4,12 +4,9 @@
 
 [functions]
   directory = "netlify/functions"
+
+[functions.node_bundle]
   external_node_modules = []
-  node_bundle = true
 
-# Configuration for scheduled functions
-[[plugins]]
-  package = "@netlify/plugin-functions-core"
-
-# The schedule is already defined in the function file itself (ESM syntax),
-# but you can also define it here if needed for older function styles.
+# Note: The schedule is defined in the function file itself (ESM syntax).
+# No extra plugins are needed for scheduled functions in modern Netlify.
