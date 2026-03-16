@@ -164,9 +164,6 @@ const LandingPage = () => {
         
         <div className="container">
           <div className="hero-content">
-            <div className="hero-badge">
-              <span className="icon"><BsLightningCharge /></span> Assesa Platform
-            </div>
             <h1>Personalized assessments <br /> for modern learning.</h1>
             <p>
               Deliver dynamic content to your visitors with our comprehensive tools.
@@ -357,6 +354,8 @@ const LandingPage = () => {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
+        <div className="tech-circuit-left"></div>
+        <div className="tech-circuit-right"></div>
           <h2>Ready to Take the Next Step?</h2>
           <p>
             Join Assesa today to access our full library of exams, create your own, 
@@ -364,12 +363,12 @@ const LandingPage = () => {
           </p>
           <div className="cta-actions">
             <Link to="/register">
-              <Button size="large">
+              <Button className='btn'>
                 Create Free Account
               </Button>
             </Link>
             <Link to="/login">
-              <Button variant="outline" size="large" >
+              <Button variant="outline" className='btn'>
                 Login
               </Button>
             </Link>

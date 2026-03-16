@@ -8,7 +8,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: $radius-md;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -26,7 +26,7 @@
     box-shadow: 0 4px 15px rgba(0, 255, 163, 0.3); /* Initial glow */
     
     &:hover:not(:disabled) {
-      box-shadow: 0 0 20px rgba(0, 255, 163, 0.6), 0 0 40px rgba(0, 255, 163, 0.2);
+      box-shadow: 0 0 5px rgba(0, 255, 162, 0.301), 0 0 40px rgba(0, 255, 163, 0.2);
       transform: translateY(-1px);
     }
 

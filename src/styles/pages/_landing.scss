@@ -235,14 +235,19 @@
 
           .btn-pill {
             border-radius: 9999px;
-            padding-left: 2.5rem;
-            padding-right: 2.5rem;
-            font-size: 1rem;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             box-shadow: 0 0 20px rgba($primary-color, 0.4);
-            
-            &:hover {
+            border-radius: $radius-md;
+            -webkit-border-radius: $radius-md;
+            -moz-border-radius: $radius-md;
+            -ms-border-radius: $radius-md;
+            -o-border-radius: $radius-md;
+            &:hover 
+{
               box-shadow: 0 0 30px rgba($primary-color, 0.6);
               transform: translateY(-2px);
             }
@@ -303,10 +308,10 @@
     gap: 2.5rem;
 
     .feature-card {
-      background: linear-gradient(0deg, color-mix(in srgb, $primary-color, transparent 72%), $background-color);
+      background: transparent;
       padding: 2.5rem;
       border-radius: 1.5rem;
-      border: 1px solid $primary-color;
+      border: 1px solid $glass-border;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -315,7 +320,6 @@
         transform: translateY(-8px);
         box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
         border-color: color-mix(in srgb, $primary-color, transparent 80%);
-        background: $surface-color;
 
         .icon-box {
           transform: scale(1.1) rotate(5deg);
@@ -506,19 +510,19 @@
   .cta-section {
     color: $text-primary;
     text-align: center;
-    position: relative;
-    overflow: hidden;
     padding: 6rem 10rem;
     border-bottom: 1px solid $border-color;
     .container{
-      background: linear-gradient(180deg, color-mix(in srgb, $primary-color, transparent 72%), $surface-color);
+      position: relative;
+      overflow: hidden;
+      background-color: transparent;
       padding:4rem 2rem;
-      border: 1px solid $primary-color;
-      border-radius: $radius-lg;
-      -webkit-border-radius: $radius-lg;
-      -moz-border-radius: $radius-lg;
-      -ms-border-radius: $radius-lg;
-      -o-border-radius: $radius-lg;
+      border:1px solid $glass-border;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
 }
 
     @include mobile {
@@ -564,6 +568,11 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
+      button{
+        padding: 20px 30px;
+        font-size: 16px;
+        font-weight: bold;
+      }
       
       @include mobile {
         flex-direction: column;
