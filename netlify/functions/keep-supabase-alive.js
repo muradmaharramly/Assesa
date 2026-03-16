@@ -17,11 +17,9 @@ export default async (req, context) => {
   try {
     console.log('Sending keep-alive request to Supabase...');
 
-    // Sending a lightweight REST request to the Supabase PostgREST endpoint
-    // This is equivalent to "SELECT 1" but via a simple HTTP GET
-    // We target a common system table or just a health check if available
-    // Here we just hit the root API which returns the OpenAPI spec (minimal activity)
-    const response = await fetch(`${supabaseUrl}/rest/v1/`, {
+    // To ensure Supabase counts this as "activity", we perform a real (but tiny) query.
+    // Querying one record from 'categories' forces a real SQL execution.
+    const response = await fetch(`${supabaseUrl}/rest/v1/categories?select=id&limit=1`, {
       method: 'GET',
       headers: {
         'apikey': supabaseKey,
@@ -30,12 +28,12 @@ export default async (req, context) => {
     });
 
     if (response.ok) {
-      console.log(`Successfully pinged Supabase: Status ${response.status}`);
-      return new Response('Supabase Keep-Alive Success', { status: 200 });
+      console.log(`Successfully queried Supabase: Status ${response.status}`);
+      return new Response('Supabase Activity Generated', { status: 200 });
     } else {
       const errorText = await response.text();
-      console.error(`Supabase ping failed: ${response.status} - ${errorText}`);
-      return new Response('Supabase Ping Failed', { status: response.status });
+      console.error(`Supabase activity failed: ${response.status} - ${errorText}`);
+      return new Response('Supabase Query Failed', { status: response.status });
     }
   } catch (error) {
     console.error('Error during Supabase keep-alive request:', error.message);
@@ -45,6 +43,6 @@ export default async (req, context) => {
 
 // Netlify configuration for the scheduled function
 export const config = {
-  // Every day at 00:00
-  schedule: "0 0 * * *"
+  // Every 6 hours (00:00, 06:00, 12:00, 18:00)
+  schedule: "0 */6 * * *"
 };
