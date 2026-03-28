@@ -147,8 +147,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: $shadow-glow;
-    border-color: rgba($primary-color, 0.3);
+    
   }
 
   .stat-content {
@@ -200,7 +199,7 @@
 .dashboard-sections-grid {
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
 
@@ -314,7 +313,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 200px;
+  height: 150px;
   padding-top: 2rem;
   gap: 0.5rem;
 
@@ -330,7 +329,7 @@
     .bar {
       width: 100%;
       max-width: 40px;
-      background: rgba($primary-color, 0.2);
+      background: #00d26a;
       border-radius: 4px 4px 0 0;
       position: relative;
       transition: height 1s ease;
@@ -338,7 +337,7 @@
       border: 1px solid rgba($primary-color, 0.3);
       
       &:hover {
-        background: rgba($primary-color, 0.4);
+        background:  #00a653;
         
         .tooltip {
           opacity: 1;

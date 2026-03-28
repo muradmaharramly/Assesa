@@ -461,7 +461,7 @@ const TakeExam = () => {
               loading={submitting}
               className="submit-btn"
             >
-              <FiCheck /> Submit Exam
+              <FiCheck /> Submit
             </Button>
           ) : (
             <Button 

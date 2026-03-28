@@ -197,8 +197,6 @@
     box-shadow: $shadow-sm;
 
     &:hover {
-      box-shadow: $shadow-glow;
-      border-color: rgba($primary-color, 0.3);
       transform: translateX(4px);
     }
 
